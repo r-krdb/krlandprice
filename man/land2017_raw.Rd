@@ -3,7 +3,7 @@
 \docType{data}
 \name{land2017_raw}
 \alias{land2017_raw}
-\title{2017년도 표준공시지가}
+\title{가공하지 않은 2017년도 표준공시지가}
 \format{tibble 자료형. \url{https://github.com/tidyverse/tibble}
 \describe{
 \item{지역}{시도 시군구 단위의 지역정보 ex> 강원 강릉시}
