@@ -11,6 +11,11 @@ writeLines(
 )
 
 land2017_raw<-read_csv(dest)
+for(i in 1:length(colnames(land2017_raw))){
+  if(!validUTF8(colnames(land2017_raw)[i])){
+    colnames(land2017_raw)[i] <- iconv(colnames(land2017_raw)[i], from = 'cp949', to = 'utf8')
+  }
+}
 save(land2017_raw, file = "data/land2017_raw.rda", compress = "bzip2")
 
 
@@ -26,5 +31,10 @@ writeLines(
 )
 
 land2016_raw<-read_csv(dest)
+for(i in 1:length(colnames(land2016_raw))){
+  if(!validUTF8(colnames(land2016_raw)[i])){
+    colnames(land2016_raw)[i] <- iconv(colnames(land2016_raw)[i], from = 'cp949', to = 'utf8')
+  }
+}
 save(land2016_raw, file = "data/land2016_raw.rda", compress = "bzip2")
 
