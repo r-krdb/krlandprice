@@ -16,6 +16,8 @@ for(i in 1:length(colnames(land2017_raw))){
     colnames(land2017_raw)[i] <- iconv(colnames(land2017_raw)[i], from = 'cp949', to = 'utf8')
   }
 }
+land2017_raw[,which(colnames(land2017_raw) %in% '지번')] <- paste0((land2017_raw[,which(colnames(land2017_raw) %in% '본번지')]), '-', (land2017_raw[,which(colnames(land2017_raw) %in% '부번지')])) # "Jun-52", "06월 01일", ... , and so on
+land2017_raw[,which(colnames(land2017_raw) %in% '지번')] <- gsub('\\-0$','', paste0((land2017_raw[,which(colnames(land2017_raw) %in% '본번지')]), '-', (land2017_raw[,which(colnames(land2017_raw) %in% '부번지')]))) # remove 66-0 (-0 is not utilised in the Korea)
 save(land2017_raw, file = "data/land2017_raw.rda", compress = "bzip2")
 
 
